@@ -1,5 +1,5 @@
 <template>
-     <div class="buttonBox w100 flex justifyEnd">
+     <div class="buttonBox flex justifyEnd">
         <span class="icon ligntText east">east</span>
     </div>
 </template>
@@ -7,7 +7,7 @@
 <style scoped>
 .rightArrowHover:hover .east {
     opacity: 1;
-    transform: translateX(20px);
+    transform: translateX(5px);
     transition: 900ms cubic-bezier(.01,.96,.04,.96);
 }
 .east {

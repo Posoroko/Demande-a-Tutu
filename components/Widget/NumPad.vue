@@ -28,22 +28,22 @@ function emitValue() {
             </div>
 
             <div class="box flex">
-                <div class="fnKey icon" @click="$emit('closeNumPad')">close</div>
-                <div class="fnKey icon">backspace</div>
-                <div class="fnKey icon" @click="emitValue">arrow_forward</div>
+                <div class="key fn icon" @click="$emit('closeNumPad')">close</div>
+                <div class="key fn icon">backspace</div>
+                <div class="key fn icon" @click="emitValue">arrow_forward</div>
             </div>
             
-            <div class="key">1</div>
-            <div class="key">2</div>
-            <div class="key">3</div>
-            <div class="key">4</div>
-            <div class="key">5</div>
-            <div class="key">6</div>
-            <div class="key">7</div>
-            <div class="key">8</div>
-            <div class="key">9</div>
+            <div class="key num">1</div>
+            <div class="key num">2</div>
+            <div class="key num">3</div>
+            <div class="key num">4</div>
+            <div class="key num">5</div>
+            <div class="key num">6</div>
+            <div class="key num">7</div>
+            <div class="key num">8</div>
+            <div class="key num">9</div>
             
-            <div class="key zero">0</div>
+            <div class="key num zero">0</div>
             <div class="key">.</div>
             
         </div>
@@ -86,22 +86,13 @@ function emitValue() {
     gap: 10px;
     padding: 10px 0;
 }
-.fnKey {
-    font-size: 3rem;
-    background-color: var(--brand-color-1);
-    /* padding: 3px 13px; */
-    border-radius: 10px;
-    display: grid;
-    place-items: center;
-    cursor: pointer;
-    box-shadow: 0 0 5px rgb(0, 0, 0);
-}
+
 .screenBox {
     grid-column: 1 / span 3;
     grid-row: 1 / span 1;
     display: grid;
     place-items: center;
-    font-size: 3rem;
+    
     padding: 1px;
     border: 2px solid rgb(52, 66, 54);
     border-radius: 12px;
@@ -109,7 +100,7 @@ function emitValue() {
 .screen {
     width: 100%;
     height: 100%;
-    
+    font-size: 3rem;
     background-color: rgb(89, 119, 94);
     padding: 0px 13px;
     border-radius: 10px;
@@ -120,12 +111,20 @@ function emitValue() {
 .key {
     font-size: 3rem;
     background-color: var(--brand-color-1);
-    padding: 10px 20px;
     border-radius: 10px;
     display: grid;
     place-items: center;
     cursor: pointer;
     box-shadow: 0 0 5px rgb(0, 0, 0);
+}
+.key:hover {
+    background-color: var(--brand-color-1-hover);
+}
+.key:active {
+    background-color: var(--brand-color-1-active);
+}
+.key.num {
+    padding: 10px 20px;
 }
 .zero {
     grid-column: 1 / span 2;

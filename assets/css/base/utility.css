@@ -137,6 +137,11 @@
 .fS20 { font-size: 20px; }
 .fS22 { font-size: 22px; }
 .fS24 { font-size: 24px; }
+.fS26 { font-size: 26px; }
+.fS28 { font-size: 28px; }
+.fS30 { font-size: 30px; }
+.fS32 { font-size: 32px; }
+.fS34 { font-size: 34px; }
 
 .noEvents_kidsEvents  {
     pointer-events: none;

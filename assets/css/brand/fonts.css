@@ -34,9 +34,10 @@ html {
 
 .bodyText {
     font-size: 18px;
-    line-height: 1;
+    line-height: 1.2;
     color: green;
 }
 .fatText {
-    font-size: 36px;
+    font-size: clamp(2.4rem, 4vw + 0.1rem, 3rem);
+    font-weight: 700;
 }

@@ -1,34 +1,49 @@
+<script setup>
+
+</script>
+
 <template>
-    <div class="cardContainer w100 h100 bodyText">
-       <NuxtLink to="/calculette-de-casserole" class="card">
-            <h2>
-                Calculette de casserole
-            </h2>
-       </NuxtLink> 
+    <div class="content flex column gap5">
+        <NuxtLink class="card " to="/calculette-de-casserole">
+            <span class="frame">
+                <img src="/images/casserole.png" alt="">
+            </span>
 
-       <NuxtLink to="/" class="card">
+            <span class="text">
+                Calculle gamelle
+            </span>
+        </NuxtLink>
 
-        </NuxtLink> 
+        <NuxtLink class="card " to="/bacs-gastro">
+            <span class="frame">
+                <img src="/images/bac-gastro.png" alt="">
+            </span>
 
-        <NuxtLink to="/" class="card">
+            <span class="text">
+                bac gastro
+            </span>
+        </NuxtLink>
 
-        </NuxtLink> 
     </div>
 </template>
 
 <style scoped>
-.cardContainer {
+.content {
     padding: 4px;
-    gap: 4px;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    flex-grow: 1;
 }
 .card {
-    aspect-ratio: 1/1;
-    padding: 8px;
-    border: 4px solid var(--brand-color-1);
-    border-radius: 8px;
-    text-align: center;
+    width: 100%;
+    font-size: 20px;
+    color: var(--basic-dark-color);
+    border: 4px solid var(--brand-color-2);
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
 }
-
+img {
+    height: 60px;
+}
 </style>

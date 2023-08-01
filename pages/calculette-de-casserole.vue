@@ -1,8 +1,8 @@
 <script setup>
-const pot = {
+const pot = ref({
     diametre: 0,
     height: 0,
-}
+})
 
 
 const showNumPad = ref(false);
@@ -16,86 +16,115 @@ function requestInput(value) {
 }
 
 function loadValue(value) {
-    console.log(value)
-    pot[targetValue.value] = value;
+    pot.value[targetValue.value] = value;
     targetValue.value = '';
     showNumPad.value = false;
 }
 
 function calculateVolume() {
-    volume.value = ((Math.PI * Math.pow(Number(pot.diametre) / 2, 2) * Number(pot.height)) / 1000).toFixed(2);
+    volume.value = ((Math.PI * Math.pow(Number(pot.value.diametre) / 2, 2) * Number(pot.value.height)) / 1000).toFixed(2);
 }
 
 function clearAll() {
-    pot.diametre = 0;
-    pot.height = 0;
+    pot.value.diametre = 0;
+    pot.value.height = 0;
     volume.value = 0;
 }
 </script>
 
 <template>
-    <div class="content">
-        <div class="inputBox">
-            <p class="fatText marRightAuto">diamêtre : </p>
+    <PageMain>
+        <template #title>
+            header
+        </template>
 
-            <div class="input" @click="requestInput('diametre')">{{ pot.diametre }}</div>
+        <template #main>
+            <div class="contentBox flex column gap5">
+                <!-- <p class="bodyText darkText">Connapitre le volume d'une casserole permet de préparer la quantité idéal en fonction du nombre de convive.  Par exemple, une gamelle de 25 litres vous donnera 125 portion de soupe.</p> -->
 
-            <div class="unitBox fatText">cm</div>
-        </div>
+                <PageBordePanel>
+                    <template #content>
+                        Entrez les dimension de votre gamelle pour en connaître le volume.
+                    </template>
+                </PageBordePanel>
 
-        <div class="inputBox">
-            <p class="fatText marRightAuto">hauteur : </p>
+                <div class="bgPanel">
+                    <p class="fatText ">diamêtre : </p>
 
-            <div class="input" @click="requestInput('height')">{{ pot.height }}</div>
+                    <div class="field input pointer" @click="requestInput('diametre')">
+                        {{ `${pot.diametre}cm` }}
+                    </div>
+                </div>
 
-            <div class="unitBox fatText">cm</div>
+                <div class="bgPanel">
+                    <p class="fatText ">hauteur : </p>
 
-        </div>
+                    <div class="field input pointer" @click="requestInput('height')">
+                        {{ `${pot.height}cm` }}
+                    </div>
+                </div>
 
-        <div class="buttonBox flex justifyEnd">
-            <div class="icon" @click="clearAll">undo</div>
-            <div class="calculate pointer" @click="calculateVolume">calculer</div>
-        </div>
+                <div class="buttonBox flex justifyEnd gap5">
+                    <div class="calculate pointer fatText lightText" @click="clearAll">effacer</div>
+                    <div class="calculate pointer fatText lightText" @click="calculateVolume">calculer</div>
+                </div>
 
-        <div class="inputBox">
-            <p class="fatText marRightAuto">volume: </p>
+                <div class="bgPanel">
+                        <p class="fatText ">volume : </p>
 
-            <div class="input">{{ volume }}</div>
+                        <div class="field output">
+                            {{ `${ volume } litre` }}<span v-if="volume >= 2">s</span>
+                        </div>
+                    </div>
+            </div>
 
-            <div class="unitBox fatText">l</div>
-        </div>
-    </div>
+        </template>
+
+        <template #footer>
+            <FooterTutuBox />
+        </template>
+    </PageMain>
 
     <WidgetNumPad v-if="showNumPad" @loadValue="loadValue" @closeNumPad="showNumPad = false"/>
 </template>
 
 <style scoped>
-.content {
-    padding: 30px;
-}
-.inputBox {
+
+.bgPanel {
+    color: var(--basic-light-color);
+    background-color: var(--brand-color-1);
+    padding: 7px;
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-evenly;
     align-items: center;
-    margin: 10px;
+    flex-wrap: wrap;
 }
-.input {
-    width: 6ch;
-    /* height: 30px; */
-    font-size: 30px;
-    text-align: right;
-    padding: 10px 13px;
-    border: 4px solid green;
-    border-radius: 5px;
-    cursor: pointer;
+.field {
+    
+    font-size: clamp(2.4rem, 4vw + 0.1rem, 3rem);
+    text-align: center;
+    color: var(--brand-color-1);
+    background-color: var(--basic-light-color);
+    padding: 3px 15px;
+    /* border: 4px solid var(--brand-color-2); */
+    border-radius: 8px;
+}
+
+.field.input {
+    width: 7ch;
+}
+
+.field.output {
+    min-width: 7ch;
 }
 .unitBox{
-    width: 2ch;
+
     text-align: center;
     padding: 5px 12px;
 }
 .calculate {
     background-color: var(--brand-color-1);
     padding: 20px;
+    border-radius: 50px;
 }
 </style>

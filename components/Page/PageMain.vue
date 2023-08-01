@@ -2,14 +2,15 @@
 
 </script>
 
-<template class="relative">
-    <header class="">
-        <slot name="header">
+<template>
+    <header class="flex justifyEnd">
+        <div class="titleBox">
+            title
+        </div>
 
-
-        </slot>
-
-    
+        <div class="menuBox">
+            <HeaderMenuBox />
+        </div>
     </header>
 
     <main>
@@ -17,42 +18,46 @@
 
         </slot>
     </main>
+
+    <footer>
+        <slot name="footer">
+
+        </slot>
+    </footer>
 </template>
 
-<style>
-header {
-    width: 100%;
-    position: relative;
-
-}
-header .headerImage_large {
-    width: 100%;
-    /* height: calc(100vh - var(--navBarHeight)); */
-    object-fit: cover;
-}
-header .headerImage_small {
-    width: 100%;
-    /* height: calc(60vh - var(--navBarHeight)); */
-    object-fit: cover;
-    object-position: center;
-}
-/* .headerImage_large,
-.headerImage_small {
-    margin-bottom: 50px;
-} */
-</style>
 
 <style scoped>
 
+header {
+    width: 100%;
+    background-color: var(--basic-light-color);
+    border: 10px solid var(--brand-color-1);
+    border-top-right-radius: 20px;
+    border-top-left-radius: 20px;
+    position: relative;
+}
+.titleBox {
+    flex-grow: 1;
+}
+.menuBox {
+    border-left: 10px solid var(--brand-color-1);
+}
 main {
     width: 100%;
-    display: flex;
-    flex-direction: column;
-    gap: clamp(20px, 5vw, 50px);
-    z-index: 0;
+    background-color: var(--basic-light-color);
+    padding: 5px;
+    border-left: 10px solid var(--brand-color-1);
+    border-right: 10px solid var(--brand-color-1);
+    flex-grow: 1;
 }
-/* main * {
-    padding-left: clamp(5px, 2vw, 10px);
-    padding-right: clamp(5px, 2vw, 10px); 
-} */
+footer {
+    width: 100%;
+        background-color: var(--basic-light-color);
+
+    border: 10px solid var(--brand-color-1);
+    border-bottom-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+    position: relative;
+}
 </style>

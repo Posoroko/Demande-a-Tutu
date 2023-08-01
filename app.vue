@@ -1,7 +1,7 @@
 <template>
 
     <div id="appBackdrop">
-        <div id="appBox">
+        <div id="appBox" class="flex column justifyBetween">
             <NuxtPage />
         </div>
     </div>
@@ -21,8 +21,5 @@
     width: min(100%, 475px);
     height: min(100%, 800px);
     contain: layout paint;
-    background-color: var(--basic-light-color);
-    border: 10px solid var(--brand-color-1);
-    border-radius: 20px;
 }
 </style>

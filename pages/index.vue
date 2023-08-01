@@ -1,11 +1,17 @@
 <template>
     <PageMain>
-        <template #header>
+        <template #title>
             <h1>Home</h1>
         </template>
 
         <template #main>
-            <HomepageCardBox />
+            <div class="flex r">
+                <HomepageCardBox />
+            </div>
+        </template>
+
+        <template #footer>
+            <FooterTutuBox />
         </template>
     </PageMain>
 </template>
