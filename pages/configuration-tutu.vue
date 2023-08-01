@@ -8,7 +8,10 @@ const types = ref([
     { id: 0, value: 'top', name: 'Hauts' }, { id: 1, value: 'pants', name: 'Bas' },
     { id: 2, value: 'hat', name: 'Chapeaux' }, { id: 3, value: 'tool', name: 'Accessoires' }
 ])
+
 const activeType = ref(types.value[0])
+
+
 </script>
 
 <template>
@@ -28,7 +31,7 @@ const activeType = ref(types.value[0])
 
                     <TutuConfigTypeSelector :types="types" :activeType="activeType" @selection="handleTypeSelection" />
 
-                    <TutuConfigScroller />
+                    <TutuConfigScroller :activeType="activeType" />
                 </div>
 
         </template>
