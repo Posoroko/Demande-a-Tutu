@@ -15,19 +15,18 @@
 
 <style scoped>
 svg {
-    width: 20px;
+    height: 25px;
     margin-top: 20px;
-    translate: 3px;
+    translate: 4px;
 }
 .st0 {
     fill: var(--basic-light-color);
-    stroke: #000000;
-    stroke-width: 4px;
-    stroke-miterlimit: 10;
+    stroke: var(--brand-color-2);
+    stroke-width: 7px;
 }
 .bulle {
     padding: 10px 20px;
-    border: 3px solid black;
+    border: 4px solid var(--brand-color-2);
     border-radius: 20px;
     flex-grow: 1;
 }
