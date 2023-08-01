@@ -48,3 +48,16 @@
 .BGC_Brand2_Hoverable:hover {
     background-color: var(--brand-color-2-hover);
 }
+
+.shadow {
+    box-shadow: 0px 0px 6px  rgba(0, 0, 0, 0.697);
+}
+.actionButton {
+    transition: 300ms ease;
+}
+.actionButton:hover {
+    filter: brightness(1.2);
+}
+.actionButton:active {
+    filter: brightness(0.8);
+}

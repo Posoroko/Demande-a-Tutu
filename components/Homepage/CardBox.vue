@@ -34,14 +34,15 @@
 }
 .card {
     width: 100%;
-    font-size: 20px;
+    font-size: 24px;
+    line-height: 1;
     color: var(--basic-dark-color);
-    border: 4px solid var(--brand-color-2);
+    border: 4px solid var(--brand-color-1);
     padding: 10px;
     display: flex;
     align-items: center;
-    gap: 10px;
-    flex-wrap: wrap;
+    gap: 20px;
+    /* flex-wrap: wrap; */
 }
 img {
     height: 60px;

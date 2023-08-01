@@ -39,7 +39,7 @@ function clearAll() {
         </template>
 
         <template #main>
-            <div class="contentBox flex column gap5">
+            <div class="content flex column gap5">
                 <!-- <p class="bodyText darkText">Connapitre le volume d'une casserole permet de préparer la quantité idéal en fonction du nombre de convive.  Par exemple, une gamelle de 25 litres vous donnera 125 portion de soupe.</p> -->
 
                 <PageBordePanel>
@@ -89,7 +89,9 @@ function clearAll() {
 </template>
 
 <style scoped>
-
+.content {
+    padding: 4px;
+}
 .bgPanel {
     color: var(--basic-light-color);
     background-color: var(--brand-color-1);
@@ -124,7 +126,7 @@ function clearAll() {
 }
 .calculate {
     background-color: var(--brand-color-1);
-    padding: 20px;
-    border-radius: 50px;
+    padding: 3px 10px;
+    border-radius: 5px;
 }
 </style>

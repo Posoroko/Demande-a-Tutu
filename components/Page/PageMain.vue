@@ -46,7 +46,6 @@ header {
 main {
     width: 100%;
     background-color: var(--basic-light-color);
-    padding: 5px;
     border-left: 10px solid var(--brand-color-1);
     border-right: 10px solid var(--brand-color-1);
     flex-grow: 1;

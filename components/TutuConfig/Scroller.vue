@@ -24,40 +24,62 @@ const images = ref({
 })
 
 
-const offsetCount = ref (0);
-const offsetString = ref("0%");
+const imageIndex = ref (0);
+const offsetString = computed(() => {
+    return imageIndex.value * -100 + "%";
+})
 
 function navigate(direction) {
-    if(direction === "left" && offsetCount.value < 0 ) {
-        offsetCount.value += 100;
-    } else if(direction === "right" && offsetCount.value  > ((shownImages.value.length - 1) * -100)){
-        offsetCount.value -= 100;
+    if(direction === "left" && imageIndex.value > 0 ) {
+        imageIndex.value -= 1;
+    } else if(direction === "right" && imageIndex.value  < shownImages.value.length - 1 ){
+        imageIndex.value += 1;
     }
-    offsetString.value = `${offsetCount.value}%`;
 }
-const shownImages = ref(images.value[props.activeType.value]);
+const shownImages = computed(() => {
+    imageIndex.value = 0;
+
+    return images.value[props.activeType.value]
+})
 </script>
 
 <template>
-    <div class="content flex justityBetween gap5" >
+    <div class="content flex justityBetween" v-if="shownImages">
         <div class="leftArrowBox arrowBox">
-            <span class="icon arrow" @click="navigate('left')">arrow_left</span>
+            <button class="btn48" @click="navigate('left')" >
+                <span class="icon shadow actionButton" >arrow_left</span>
+            </button>
         </div>
 
-        <div class="frame flex r">
+        <div class="frame flex relative">
 
-            <div class="image w100 b" v-for="image in shownImages" :key="image.id">{{ image.thumbnail }}</div>
+            <div class="image w100" v-for="image in shownImages" :key="image.id">
+                <div>{{ image.thumbnail }}</div>
+            </div>
+
+            <div class="absolute w100 bottom0 left0 flex justifyEnd alignCenter">
+                <div class="counter">
+                    {{ imageIndex + 1 }} / {{ shownImages.length }}
+                </div>
+                <button class="btn48">
+                    <span class="icon shadow actionButton">check_circle</span>
+                </button>
+            </div>
+
 
         </div>
 
          <div class="rightArrowBox arrowBox">
-            <span class="icon arrow" @click="navigate('right')">arrow_right</span>
+            <button class="btn48" @click="navigate('right')" >
+                <span class="icon shadow actionButton" >arrow_right</span>
+            </button>
         </div>
     </div>
 </template>
 
 <style scoped>
 .content {
+    padding-bottom: 4px;
     flex-grow: 1;
 }
 .frame {
@@ -67,12 +89,56 @@ const shownImages = ref(images.value[props.activeType.value]);
     overflow: hidden;
     display: flex;
 }
+.counter {
+    font-size: 13px;
+    font-family: 'Roboto', sans-serif;
+    letter-spacing: -1px;
+    color: var(--basic-light-color);
+    background-color: var(--brand-color-1);
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    padding: 2px 4px;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    translate: -50%;
+    margin-left: 4px;
+    display: grid;
+    place-items: center;
+}
+.btn48 {
+    width: 48px;
+    height: 48px;
+    border-radius: 5px;
+    display: grid;
+    place-items: center;
+}
+.btn48 span {
+    height: 40px;
+    width: 40px;
+    font-size: 28px;
+    color: var(--basic-light-color);
+    background-color: var(--brand-color-1);
+    border-radius: 5px;
+    display: grid;
+    place-items: center;
+    cursor: pointer;
+}
 .image {
+    padding: 4px;
     flex-shrink: 0;
     display: grid;
     place-items: center;
     translate: v-bind('offsetString');
     transition: 300ms ease;
+}
+.image div {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(128, 128, 128, 0.486);
+    border-radius: 5px;
+    display: grid;
+    place-items: center;
 }
 .arrowBox {
     display: grid;
@@ -89,13 +155,6 @@ const shownImages = ref(images.value[props.activeType.value]);
     display: grid;
     place-items: center;
     cursor: pointer;
-    transition: 300ms ease;
 }
-.arrow:hover {
-    background-color: var(--brand-color-1-hover);
-    transition: 75ms ease;
-}
-.arrow:active {
-    background-color: var(--brand-color-1-active);
-}
+
 </style>

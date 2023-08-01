@@ -22,7 +22,7 @@ const activeType = ref(types.value[0])
 
         <template #main>
 
-                <div class="content flex column gap10 h100">
+                <div class="content flex column gap5 h100">
                     <!-- <PageBordePanel>
                     <template #content>
                         Grand maître Sappeur avec une street cred légendaire, il porte la fringue de style comme personne!

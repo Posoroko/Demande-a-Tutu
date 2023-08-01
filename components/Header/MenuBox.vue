@@ -1,10 +1,10 @@
 <template>
     <div class="box">
-        <NuxtLink to="/" class="button icon r">
+        <NuxtLink to="/" class="button icon">
             home
         </NuxtLink>
 
-        <div class="button r">
+        <div class="button">
             <MenuMain />
         </div>
     </div>
