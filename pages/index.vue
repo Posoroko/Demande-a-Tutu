@@ -1,11 +1,11 @@
 <template>
     <PageMain>
         <template #title>
-            <h1>Home</h1>
+            <PageTitle page="accueil" />
         </template>
 
         <template #main>
-            <div class="flex r">
+            <div class="flex h100">
                 <HomepageCardBox />
             </div>
         </template>

@@ -14,11 +14,13 @@ const client = {
 <template>
     <PageMain>
         <template #title>
-            <h1>Mentions légales</h1>
+
+            <PageTitle page="mentions" />
+
         </template>
 
         <template #main>
-            <div class="content h100 flex column gap30">
+            <div class="pageContent h100 flex column gap30">
                 <h2 class="bodyText1">Ce site internet est la propriété de {{ client.name }} : </h2>
 
                 <address class="bodyText1">
@@ -105,7 +107,7 @@ const client = {
 * {
     color: var(--basic -dark-color);
 }
-.content {
+.pageContent {
     height: 70vh;
     padding: 10px;
     overflow: scroll;

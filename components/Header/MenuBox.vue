@@ -1,31 +1,22 @@
 <template>
     <div class="box">
-        <NuxtLink to="/" class="button icon">
-            home
-        </NuxtLink>
+        <Button48>
+            <NuxtLink to="/" class="h100 w100 r icon lightText">
+                home
+            </NuxtLink>
+        </Button48>
 
-        <div class="button">
-            <MenuMain />
-        </div>
+        <MenuMain />
+
     </div>
 </template>
 
 <style scoped>
 .box {
-    padding: 3px;
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-gap: 3px;
-}
-.button {
-    width: 48px;
-    height: 48px;
-    border-radius: 3px;
-    display: grid;
-    place-items: center;
+    height: 96px;
 }
 .icon {
-    font-size: 40px;
-    color: var(--brand-color-1);
+    font-size: 28px;
+    color: var(--basic-light-color);
 }
 </style>

@@ -4,8 +4,10 @@
 
 <template>
     <header class="flex justifyEnd">
-        <div class="titleBox">
-            title
+        <div class="titleBox flex alignStretch">
+            <slot name="title">
+
+            </slot>
         </div>
 
         <div class="menuBox">
@@ -38,6 +40,7 @@ header {
     position: relative;
 }
 .titleBox {
+    height: 96px;
     flex-grow: 1;
 }
 .menuBox {

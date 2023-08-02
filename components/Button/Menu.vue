@@ -1,5 +1,5 @@
 <template>
-    <svg @click="$emit('clicked')" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+    <svg class="h100 w100" preserveAspectRatio="false"  version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
     	 viewBox="0 0 470.81 470.81" style="enable-background:new 0 0 470.81 470.81;" xml:space="preserve">
 
         <path class="st0" d="M413.44,162.08H57.37v-6.88c0-50.88,41.25-92.13,92.13-92.13h171.8c50.88,0,92.13,41.25,92.13,92.13V162.08z"/>
@@ -20,8 +20,6 @@
 
 <style scoped>
 svg {
-    height: 100%;
-    fill: var(--brand-color-1);
-    cursor: pointer;
+    fill: var(--basic-light-color);
 }
 </style>

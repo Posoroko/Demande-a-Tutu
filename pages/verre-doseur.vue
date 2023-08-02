@@ -1,11 +1,11 @@
 <template>
     <PageMain>
         <template #title>
-            <PageTitle page="about" />
+            <PageTitle page="verre" />
         </template>
 
         <template #main>
-            <NuxtLink to="/mentions-legales">Mentions légales</NuxtLink>
+            
         </template>
 
         <template #footer>

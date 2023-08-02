@@ -1,52 +1,31 @@
 <script setup>
+import { tabs } from '@/assets/content/tabs.js';
+
 const menuIsOpen = ref(false);
 
 function toggleMenu() {
-    console.log('click')
     menuIsOpen.value = !menuIsOpen.value;
-    console.log(menuIsOpen.value)
 }
-const tabs = [
-    {
-        name: 'confg Tutu',
-        path: '/configuration-tutu'
-    },
-    {
-        name: 'Accueil',
-        path: '/'
-    },
-    {
-        name: 'Calculette de casserole',
-        path: '/calculette-de-casserole'
-    },
-    {
-        name: 'À propos',
-        path: '/a-propos'
-    },
-    {
-        name: 'Mentions légales',
-        path: '/mentions-legales'
-    }
-]
+
 </script>
 
 <template>
-    <ButtonMenu @clicked="toggleMenu" />
+    <Button48 @clicked="toggleMenu">
+        <ButtonMenu />
+    </Button48>
 
-    <div class="menuModal" v-if="menuIsOpen">
-        <div class="content">
+    <div class="menuModal" :class="{ 'active' : menuIsOpen}">
+        <div class="content flex column">
             <h1 class="centered pad20 fs32">Menu</h1>
             <div class="tabList">
-                <NuxtLink v-for="(tab, index) in tabs" :key="index" class="menuTab flex justifyBetween alignCenter rightArrowHover" :to="tab.path">
-                    <span>{{ tab.name }}</span>
+                <NuxtLink v-for="tab in tabs" :key="tab.id" class="menuTab actionButton shadow flex justifyBetween alignCenter rightArrowHover" :to="tab.path">
+                    <span>{{ tab.title }}</span>
 
                     <WidgetRightArrow />
                 </NuxtLink>
 
                 <div class="icon absolute top0 right0 fS32 pad10 pointer" @click="toggleMenu">close</div>
             </div>
-
-            
         </div>
     </div>
 </template>
@@ -62,6 +41,14 @@ const tabs = [
     backdrop-filter: blur(10px);
     background-color: rgba(0, 0, 0, 0.5);
     z-index: 100;
+    opacity: 0;
+    pointer-events: none;
+    transition: 300ms ease;
+}
+.menuModal.active {
+    pointer-events: all;
+    opacity: 1;
+    
 }
 .content {
     height: 100%;
@@ -72,6 +59,7 @@ const tabs = [
     position: relative;
 }
 .tabList {
+    flex-grow: 1;
     display: flex;
     flex-direction: column;
     gap: 10px;
@@ -79,10 +67,18 @@ const tabs = [
 .menuTab {
     font-size: 18px;
     color: var(--basic-light-color);
-    padding: 20px;
+    padding: 10px;
     border-bottom: 1px solid var(--brand-color-1);
     border-radius: 10px;
     background-color: var(--brand-color-1);
     cursor: pointer;
+    transform: translateY(100px);
+    opacity: 0;
+    transition: 300ms ease;
+}
+.menuModal.active .menuTab {
+    transform: translateY(0px);
+    opacity: 1;
+    transition: 300ms ease;
 }
 </style>

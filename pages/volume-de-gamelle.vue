@@ -35,7 +35,7 @@ function clearAll() {
 <template>
     <PageMain>
         <template #title>
-            header
+            <PageTitle page="gamelles" />
         </template>
 
         <template #main>

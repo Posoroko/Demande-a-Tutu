@@ -43,7 +43,7 @@ function emitValue() {
             <div class="key num">8</div>
             <div class="key num">9</div>
             
-            <div class="key num zero">0</div>
+            <div class="key zero">0</div>
             <div class="key">.</div>
             
         </div>
@@ -109,6 +109,7 @@ function emitValue() {
     justify-content: flex-end;
 }
 .key {
+
     font-size: 3rem;
     background-color: var(--brand-color-1);
     border-radius: 10px;
@@ -124,7 +125,9 @@ function emitValue() {
     background-color: var(--brand-color-1-active);
 }
 .key.num {
-    padding: 10px 20px;
+    width: 64px;
+    height: 48px;
+    /* padding: 10px 20px; */
 }
 .zero {
     grid-column: 1 / span 2;

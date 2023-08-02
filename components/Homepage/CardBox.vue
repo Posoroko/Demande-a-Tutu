@@ -1,29 +1,20 @@
 <script setup>
+import { tabs } from '@/assets/content/tabs.js'
 
+const homepageTabs = computed(() => {
+    return tabs.filter(tab => tab.homepage)
+})
 </script>
 
 <template>
-    <div class="content flex column gap5">
-        <NuxtLink class="card " to="/calculette-de-casserole">
+    <div class="content h100 flex column gap5">
+        <NuxtLink v-for="tab in homepageTabs" :key="tab.id" class="card " :to="tab.path">
             <span class="frame">
-                <img src="/images/casserole.png" alt="">
+                <img  v-if="tab.image" :src="`/images/${tab.image}`" alt="">
             </span>
 
-            <span class="text">
-                Calculle gamelle
-            </span>
+            <span class="text">{{ tab.title }}</span>
         </NuxtLink>
-
-        <NuxtLink class="card " to="/bacs-gastro">
-            <span class="frame">
-                <img src="/images/bac-gastro.png" alt="">
-            </span>
-
-            <span class="text">
-                bac gastro
-            </span>
-        </NuxtLink>
-
     </div>
 </template>
 
@@ -31,6 +22,7 @@
 .content {
     padding: 4px;
     flex-grow: 1;
+    height: 100%;
 }
 .card {
     width: 100%;
@@ -38,13 +30,13 @@
     line-height: 1;
     color: var(--basic-dark-color);
     border: 4px solid var(--brand-color-1);
-    padding: 10px;
+    padding: 0 10px;
     display: flex;
     align-items: center;
     gap: 20px;
-    /* flex-wrap: wrap; */
+    flex-grow: 1;
 }
 img {
-    height: 60px;
+    height: 40px;
 }
 </style>

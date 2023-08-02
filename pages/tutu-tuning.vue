@@ -17,7 +17,7 @@ const activeType = ref(types.value[0])
 <template>
     <PageMain>
         <template #title>
-            header
+            <PageTitle page="tutuTuning" />
         </template>
 
         <template #main>
