@@ -1,5 +1,5 @@
 <template>
-    <div class="content flex">
+    <div class=" flex">
         <div class="frame">
             <img src="/images/Tutu-petit.png" alt="">
         </div>

@@ -52,6 +52,9 @@ main {
     border-left: 10px solid var(--brand-color-1);
     border-right: 10px solid var(--brand-color-1);
     flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    position: relative;
 }
 footer {
     width: 100%;

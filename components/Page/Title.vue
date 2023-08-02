@@ -5,7 +5,7 @@ const props = defineProps({
 </script>
 
 <template>
-    <div class="content">
+    <div class="titleContent">
         <svg v-if="page == 'gamelles'"  version="1.1" x="0px" y="0px" viewBox="0 0 369.76 124.91"  preserveAspectRatio="none">
     
                 <path d="M46.67,6.84h-3.82L30.14,50.14H16.53L3.82,6.84H0V4.56h23.59v2.28h-6.15l11.34,38.63L40.12,6.84h-6.15V4.56h12.71V6.84z"/>
@@ -248,7 +248,7 @@ const props = defineProps({
 
 <style scoped>
 
-.content {
+.titleContent {
     padding: 10px;
     flex-grow: 1;
 }
