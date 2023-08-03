@@ -14,7 +14,7 @@ const { data: bacs } = await useAsyncData(
     "bacsGastro",
     async () => {
         const items = await $fetch(`${directusItems}Tutu_gastros`, fetchOptions)
-        console.log(items.data)
+
         return items.data
     }
     ,
