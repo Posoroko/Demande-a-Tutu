@@ -40,18 +40,19 @@ const list = computed(() => {
                 <div class="searchBox flex justifyEnd">
                     <input class="input" type="text" v-model="queryString" placeholder="Rechercher un ingrédient" />
                 </div>
+                <div class="topTableBox w100 flex">
+                    <p class="w40 bodyText column1">ingrédient</p>
+
+                    <div class="flex grow bodyText">
+                        <p class="grow centered">1/4 litre</p>
+                        <p class="grow centered">1/2 litre</p>
+                        <p class="grow centered">1 litre</p>
+                    </div>
+                </div>
 
                 <div class="ingredientsContent flex column ">
 
-                    <div class="topTableBox w100 flex">
-                        <p class="w40 bodyText column1">ingrédient</p>
-
-                        <div class="flex grow bodyText">
-                            <p class="grow centered">1/4 litre</p>
-                            <p class="grow centered">1/2 litre</p>
-                            <p class="grow centered">1 litre</p>
-                        </div>
-                    </div>
+                    
 
 
                     <div class="ingredientLine flex alignCenter justifyBetween bodyText" v-for="item in list" :key="item.id">
