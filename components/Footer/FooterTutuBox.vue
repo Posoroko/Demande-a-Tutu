@@ -20,19 +20,20 @@ const mountedOnce = ref(false);
 onMounted(() => {
     if(mountedOnce.value) return;
 
-    if (localStorage) {
-        let temp = JSON.parse(localStorage.getItem('tutu'));
+    let temp = JSON.parse(localStorage.getItem('tutu'));
 
-        tutu.value = temp;
-    } 
-    else {
+    if (!localStorage || !temp) {
         tutu.value.naked = local.value.naked;
         tutu.value.tops = local.value.tops;
         tutu.value.bottoms = local.value.bottoms;
         tutu.value.hats = local.value.hats;
         tutu.value.tools = local.value.tools;
+
+        return
     }
 
+    tutu.value = temp;
+    
     mountedOnce.value = true;
 })
 
