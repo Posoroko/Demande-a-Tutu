@@ -1,50 +1,69 @@
 <script setup>
+
+const tutu = useState('selectedItems', () => { return { naked: "", tops: "", bottoms: "", hats: "", tools: "" } })
+
 const props = defineProps({
     activeType: Object,
 })
-const images = ref({
-    top: [
-        { id: 0, thumbnail: "top 0", image: "TOP 0" },
-        { id: 1, thumbnail: "top 1", image: "TOP 1" },
-        { id: 2, thumbnail: "top 2", image: "TOP 2"},
-        { id: 3, thumbnail: "top 3", image: "TOP 3"}
-    ],
-    pants: [
-        { id: 0, thumbnail: "pants 0", image: "PANTS 0" },
-        { id: 1, thumbnail: "pants 1", image: "PANTS 1" },
-    ],
-    hat: [
-        { id: 0, thumbnail: "hat 0", image: "HAT 0" },
-        { id: 1, thumbnail: "hat 1", image: "HAT 1" },
-    ],
-    tool: [
-        { id: 0, thumbnail: "tool 0", image: "TOOL 0" },
-        { id: 1, thumbnail: "tool 1", image: "TOOL 1" },
-    ],
-})
 
+const appConfig = useAppConfig();
+const directusItems = appConfig.directus.items;
+const directusAssets = appConfig.directus.assets;
 
-const imageIndex = ref (0);
+const imageIndex = ref(0);
+
 const offsetString = computed(() => {
     return imageIndex.value * -100 + "%";
 })
 
+const fetchOptions = {
+    server: false,
+    params: {
+        fields: '*.*',
+    }
+}
+
+const { data: items } = await useAsyncData(
+    "tutuTuning",
+    async () => {
+        const items = await $fetch(`${directusItems}Tutu_tunning`, fetchOptions)
+        
+        return items.data
+    }
+    ,
+    { server: false }
+)
+
+const shownItems = computed(() => {
+
+    imageIndex.value = 0;
+
+    return items.value[props.activeType.value]
+})
+
+
+
+
 function navigate(direction) {
     if(direction === "left" && imageIndex.value > 0 ) {
         imageIndex.value -= 1;
-    } else if(direction === "right" && imageIndex.value  < shownImages.value.length - 1 ){
+    } else if(direction === "right" && imageIndex.value  < shownItems.value.length - 1 ){
         imageIndex.value += 1;
     }
 }
-const shownImages = computed(() => {
-    imageIndex.value = 0;
+function loadItem() {
+    tutu.value[props.activeType.value] = shownItems.value[imageIndex.value].image;
 
-    return images.value[props.activeType.value]
-})
+    let temp = tutu.value
+
+    localStorage.setItem('tutu', JSON.stringify(temp));
+    
+}
+
 </script>
 
 <template>
-    <div class="content flex justityBetween" v-if="shownImages">
+    <div class="content flex justityBetween" v-if="shownItems">
         <div class="leftArrowBox arrowBox">
             <button class="btn48" @click="navigate('left')" >
                 <span class="icon shadow actionButton" >arrow_left</span>
@@ -53,16 +72,16 @@ const shownImages = computed(() => {
 
         <div class="frame flex relative">
 
-            <div class="image w100" v-for="image in shownImages" :key="image.id">
-                <div>{{ image.thumbnail }}</div>
+            <div class="image w100 relative centered r" v-for="(item, index) in shownItems" :key="item.id">
+                <img class="itemImage " :src="`${directusAssets}${item.thumbnail}`" alt="" >
             </div>
 
             <div class="absolute w100 bottom0 left0 flex justifyEnd alignCenter">
                 <div class="counter">
-                    {{ imageIndex + 1 }} / {{ shownImages.length }}
+                    {{ imageIndex + 1 }} / {{ shownItems.length }}
                 </div>
                 <button class="btn48">
-                    <span class="icon shadow actionButton">check_circle</span>
+                    <span class="icon shadow actionButton" @click="loadItem">check_circle</span>
                 </button>
             </div>
 
@@ -88,6 +107,15 @@ const shownImages = computed(() => {
     border-radius: 8px;
     overflow: hidden;
     display: flex;
+}
+.itemImage {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 80%;
+    height: 80%;
+    object-fit: contain;
+    transform: translate(-50%, -50%);
 }
 .counter {
     font-size: 13px;

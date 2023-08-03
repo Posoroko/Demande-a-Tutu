@@ -5,8 +5,8 @@ function handleTypeSelection(typeId) {
     activeType.value = types.value[typeId]
 }
 const types = ref([
-    { id: 0, value: 'top', name: 'Hauts' }, { id: 1, value: 'pants', name: 'Bas' },
-    { id: 2, value: 'hat', name: 'Chapeaux' }, { id: 3, value: 'tool', name: 'Accessoires' }
+    { id: 0, value: 'tops', name: 'Hauts' }, { id: 1, value: 'bottoms', name: 'Bas' },
+    { id: 2, value: 'hats', name: 'Chapeaux' }, { id: 3, value: 'tools', name: 'Accessoires' }
 ])
 
 const activeType = ref(types.value[0])

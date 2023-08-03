@@ -11,7 +11,7 @@
 <style scoped>
 #appBackdrop {
     width: 100%;
-    height: 100svh;
+    height: 100vh;
     background-color: rgb(46, 46, 46); 
     padding: 4px;
     display: grid;
