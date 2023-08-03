@@ -68,8 +68,10 @@
 .sticky {position: sticky;}
 
 .top0 {top: 0;}
+.top20 {top: 20px;}
 .top50 {top: 50%;}
 .right0 {right: 0;}
+.right20 {right: 20px;}
 .right50 {right: 0; }
 .left0 {left: 0;}
 .left50 {left: 50%;}
@@ -145,6 +147,9 @@
 .fS32 { font-size: 32px; }
 .fS34 { font-size: 34px; }
 
+.noEvents {
+    pointer-events: none;
+}
 .noEvents_kidsEvents  {
     pointer-events: none;
 }

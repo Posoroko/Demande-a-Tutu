@@ -35,9 +35,17 @@ html {
 .bodyText {
     font-size: 18px;
     line-height: 1.2;
-    color: green;
 }
 .fatText {
     font-size: clamp(2.4rem, 4vw + 0.1rem, 3rem);
     font-weight: 700;
+}
+.lightText {
+    color: var(--basic-lightColor);
+}
+.textColor1 {
+    color: var(--brand-color-1);
+}
+.textColor2 {
+    color: var(--brand-color-2);
 }

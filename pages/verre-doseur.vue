@@ -41,23 +41,23 @@ const list = computed(() => {
                     <input class="input" type="text" v-model="queryString" placeholder="Rechercher un ingrédient" />
                 </div>
 
-                <div class="ingredientsContent flex column gap20 ">
+                <div class="ingredientsContent flex column ">
 
                     <div class="topTableBox w100 flex">
                         <p class="w40 bodyText column1">ingrédient</p>
 
                         <div class="flex grow bodyText">
-                            <p class="grow centered">1/2 litre</p>
                             <p class="grow centered">1/4 litre</p>
+                            <p class="grow centered">1/2 litre</p>
                             <p class="grow centered">1 litre</p>
                         </div>
                     </div>
 
 
-                    <div class="flex alignEnd justifyBetween bodyText" v-for="item in list" :key="item.id">
+                    <div class="ingredientLine flex alignCenter justifyBetween bodyText" v-for="item in list" :key="item.id">
                         <p class="w40 column1 item">{{ item.name }}</p>
                         
-                        <div class="gramsBox flex grow">
+                        <div class="gramsBox flex alignCenter grow">
                             <p class="grams centered">{{ Math.floor(item.perLiter / 4)}}gr</p>
                             <p class="grams centered">{{ Math.floor(item.perLiter / 2) }}gr</p>
                             <p class="grams centered">{{ item.perLiter }}gr</p>
@@ -93,7 +93,14 @@ const list = computed(() => {
 .topTableBox{
     padding: 4px;
     border: 4px solid var(--brand-color-1);
-    margin-top: 5px;
+    margin: 5px 0;
+}
+.ingredientLine {
+    padding: 4px 0;
+    margin: 2px 0;
+}
+.ingredientLine:nth-child(even) {
+    background-color: rgba(0, 0, 0, 0.077);
 }
 .ingredientsContent {
     overflow: scroll;
