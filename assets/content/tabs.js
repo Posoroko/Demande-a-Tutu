@@ -5,12 +5,12 @@ export const tabs = [
         path: "/",
         homepage: false,
     },
-    // {
-    //     id: 1,
-    //     title: "A propos",
-    //     path: "/a-propos",
-    //     homepage: false,
-    // },
+    {
+        id: 1,
+        title: "A propos",
+        path: "/a-propos",
+        homepage: false,
+    },
     {
         id: 2,
         title: "Volume de gamelle",

@@ -89,8 +89,7 @@ const client = {
                 <div>
                     <h2 class="bodyTitle">LIEN </h2>
                     <p class="bodyText1">
-                        Certaines pages peuvent contenir des liens vers des sites externes à ce site. <b>Synthèse
-                            Electric</b> ne
+                        Certaines pages peuvent contenir des liens vers des sites externes à ce site. <b>{{ client.name }}</b> ne
                         réalise pas de contrôle sur ces sites, par conséquent, elle n’assume aucune responsabilité quant à
                         la disponibilité de ces sites, leurs
                         contenus, publicités, produits ou services disponibles à partir de ces sites. L’accès à d’autres
