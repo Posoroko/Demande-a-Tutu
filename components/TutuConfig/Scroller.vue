@@ -27,8 +27,21 @@ const { data: items } = await useAsyncData(
     "tutuTuning",
     async () => {
         const items = await $fetch(`${directusItems}Tutu_tunning`, fetchOptions)
+        let _items = items.data
         
-        return items.data
+        function moveBlank(type) {
+            let temp = _items[type].find(item => item.isBlank)
+            let index = _items[type].indexOf(temp);
+            _items[type].splice(index, 1)
+            _items[type].push(temp)
+        }
+
+        moveBlank('bottoms')
+        moveBlank('hats')
+        moveBlank('tops')
+        moveBlank('tools')
+
+        return _items
     }
     ,
     { server: false }
@@ -71,7 +84,6 @@ function loadItem() {
         </div>
 
         <div class="frame flex relative">
-
             <div class="image w100 relative centered r" v-for="(item, index) in shownItems" :key="item.id">
                 <img class="itemImage " :src="`${directusAssets}${item.thumbnail}`" alt="" >
             </div>
@@ -80,17 +92,16 @@ function loadItem() {
                 <div class="counter">
                     {{ imageIndex + 1 }} / {{ shownItems.length }}
                 </div>
+
                 <button class="btn48">
                     <span class="icon shadow actionButton" @click="loadItem">check_circle</span>
                 </button>
             </div>
-
-
         </div>
 
          <div class="rightArrowBox arrowBox">
             <button class="btn48" @click="navigate('right')" >
-                <span class="icon shadow actionButton" >arrow_right</span>
+                <span class="icon shadow actionButton">arrow_right</span>
             </button>
         </div>
     </div>
