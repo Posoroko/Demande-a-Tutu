@@ -1,6 +1,6 @@
-
-@import url('@/assets/css/architecture/main.css');
 @import url('@/assets/css/brand/main.css');
+@import url('@/assets/css/architecture/main.css');
+
 @import url('@/assets/css/base/main.css');
 
 html {

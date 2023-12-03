@@ -6,9 +6,9 @@
 
 @font-face {
     font-family: 'Kurale-Regular';
+    src:  url('/assets/fonts/Kurale-Regular.ttf') format('woff');
     font-style: normal;
     font-weight: 400;
-    src: local('Kurale-Regular'), local('Kurale-Regular'), url('../../fonts/Kurale-Regular.ttf') format('opentype');
     font-display: swap;
 }
 
