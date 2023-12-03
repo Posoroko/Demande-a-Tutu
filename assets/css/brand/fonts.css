@@ -1,9 +1,16 @@
 @import url("https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200");
+/* @import url('https://fonts.googleapis.com/css2?family=Kurale&display=swap'); */
 
-@import url('https://fonts.googleapis.com/css2?family=Kumar+One&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Kurale&display=swap');
+/* font used for the healine svg */
+/* @import url('https://fonts.googleapis.com/css2?family=Kumar+One&display=swap'); */
 
-
+@font-face {
+    font-family: 'Kurale-Regular';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Kurale-Regular'), local('Kurale-Regular'), url('../../fonts/Kurale-Regular.ttf') format('opentype');
+    font-display: swap;
+}
 
 /* nixi, buda zen loop urbanist */
 
@@ -25,20 +32,20 @@ html {
 
 
 :root {
-    --text-font: "Kurale",sans-serif;
+    --text-font: "Kurale-Regular",sans-serif;
 }
 
 * {
-    font-family: "Kurale", sans-serif;
+    font-family: "Kurale-Regular", sans-serif;
 }
 
 .bodyText {
-    font-size: 18px;
+    font-size: 1.8rem;
     line-height: 1.2;
 }
 .fatText {
     font-size: clamp(2.4rem, 4vw + 0.1rem, 3rem);
-    font-weight: 700;
+    font-weight: 400;
 }
 .lightText {
     color: var(--basic-lightColor);
