@@ -24,13 +24,22 @@ function toggleMenu() {
                     <WidgetRightArrow />
                 </NuxtLink>
 
-                <div class="icon absolute top0 right0 fS32 pad10 pointer" @click="toggleMenu">close</div>
+                <div class="closeBtonBox absolute top0 right0 pad10 pointer" @click="toggleMenu">
+                    <WidgetIconSVG fillColor="black">
+                        <!-- close button -->
+                        <path d="M4.4,21.5l-1.9-1.9l7.6-7.6L2.5,4.4l1.9-1.9l7.6,7.6l7.6-7.6l1.9,1.9L13.9,12l7.6,7.6l-1.9,1.9L12,13.9L4.4,21.5z"/>
+                    </WidgetIconSVG>
+                </div>
             </div>
         </div>
     </div>
 </template>
 
 <style scoped>
+.closeBtonBox{
+    width: 48px;
+    height: 48px;
+}
 .menuModal {
     position: fixed;
     top: 0;

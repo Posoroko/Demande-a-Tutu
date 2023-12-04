@@ -31,7 +31,6 @@ const props = defineProps({
     width: 100%;
     height: 40px;
     font-size: 20px;
-    font-family: var(--text-font);
     color: var(--brand-color-1);
     border: 4px solid var(--brand-color-1);
     border-radius: 5px;

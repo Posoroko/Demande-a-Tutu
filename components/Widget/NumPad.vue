@@ -22,15 +22,30 @@ function emitValue() {
 
 <template>
     <div class="backdrop">
-        <div class="numPad r" @click="handleNumClick">
+        <div class="numPad" @click="handleNumClick">
             <div class="screenBox">
                 <div class="screen">{{ input }}</div>
             </div>
 
             <div class="box flex">
-                <div class="key fn icon" @click="$emit('closeNumPad')">close</div>
-                <div class="key fn icon">backspace</div>
-                <div class="key fn icon" @click="emitValue">arrow_forward</div>
+                <div class="key fn iconBtn" @click="$emit('closeNumPad')">
+                    <!-- close button -->
+                    <WidgetIconSVG fillColor="var(--basic-light-color)">
+                        <path d="M4.4,21.5l-1.9-1.9l7.6-7.6L2.5,4.4l1.9-1.9l7.6,7.6l7.6-7.6l1.9,1.9L13.9,12l7.6,7.6l-1.9,1.9L12,13.9L4.4,21.5z"/>
+                    </WidgetIconSVG>
+                </div>
+                <div class="key fn iconBtn">
+                    <!-- backspace button -->
+                    <WidgetIconSVG fillColor="var(--basic-light-color)">
+                        <path d="M7.5,19.8L2,12l5.5-7.8H22v15.5H7.5z M11.3,16.4l2.9-2.9l2.9,2.9l1.6-1.6L15.8,12l2.9-2.9l-1.6-1.6l-2.9,2.9l-2.9-2.9L9.8,9.1l2.9,2.9l-2.9,2.9L11.3,16.4z"/>
+                    </WidgetIconSVG>
+                </div>
+                <div class="key fn iconBtn" @click="emitValue">
+                    <!-- check/confirm vutton -->
+                    <WidgetIconSVG fillColor="var(--basic-light-color)">
+                        <path d="M8.9,19.6l-7.3-7.3l1.8-1.8L8.9,16L20.6,4.4l1.8,1.8L8.9,19.6z"/>
+                    </WidgetIconSVG>
+                </div>
             </div>
             
             <div class="key num">1</div>
@@ -53,6 +68,9 @@ function emitValue() {
 </template>
 
 <style scoped>
+.iconBtn {
+    padding: 10px;
+}
 * {
     user-select: none;
 }
@@ -84,14 +102,12 @@ function emitValue() {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 10px;
-    padding: 10px 0;
 }
 
 .screenBox {
     grid-column: 1 / span 3;
     grid-row: 1 / span 1;
-    display: grid;
-    place-items: center;
+
     
     padding: 1px;
     border: 2px solid rgb(52, 66, 54);
@@ -109,7 +125,8 @@ function emitValue() {
     justify-content: flex-end;
 }
 .key {
-
+    height: 64px;
+    color: var(--basic-light-color);
     font-size: 3rem;
     background-color: var(--brand-color-1);
     border-radius: 10px;
@@ -126,8 +143,7 @@ function emitValue() {
 }
 .key.num {
     width: 64px;
-    height: 48px;
-    /* padding: 10px 20px; */
+    
 }
 .zero {
     grid-column: 1 / span 2;

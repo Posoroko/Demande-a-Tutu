@@ -1,6 +1,11 @@
 <template>
      <div class="buttonBox flex justifyEnd">
-        <span class="icon ligntText east">east</span>
+        <span class="ligntText east">
+            <WidgetIconSVG fillColor="var(--basic-light-color)">
+                <!-- east button -->
+                <path d="M15.1,19l-1.5-1.4l4.8-4.6H1.6v-2h16.8l-4.7-4.6L15.1,5l7.3,7L15.1,19z"/>
+            </WidgetIconSVG>
+        </span>
     </div>
 </template>
 
@@ -11,8 +16,8 @@
     transition: 900ms cubic-bezier(.01,.96,.04,.96);
 }
 .east {
-    font-size: clamp(3rem, 4.5vw + 0.1rem, 5rem);
-    color: var(--basic-light-color); 
+    width: 48px;
+    height: 48px;
     transition: 900ms cubic-bezier(.01,.96,.04,.96);
 }
 @media (hover: hover ) {

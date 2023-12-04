@@ -1,18 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200");
-/* @import url('https://fonts.googleapis.com/css2?family=Kurale&display=swap'); */
 
 /* font used for the healine svg */
 /* @import url('https://fonts.googleapis.com/css2?family=Kumar+One&display=swap'); */
-
-@font-face {
-    font-family: 'Kurale-Regular';
-    src:  url('/assets/fonts/Kurale-Regular.ttf') format('woff');
-    font-style: normal;
-    font-weight: 400;
-    font-display: swap;
-}
-
-/* nixi, buda zen loop urbanist */
 
 .icon {
     font-family: 'Material Symbols Outlined';
@@ -25,18 +14,16 @@
         'opsz' 48
 }
 
-
 html {
     font-size: 62.5%;
 }
 
-
 :root {
-    --text-font: "Kurale-Regular",sans-serif;
+    --text-font: "Kurale",sans-serif;
 }
 
 * {
-    font-family: "Kurale-Regular", sans-serif;
+    font-family: "Kurale", sans-serif;
 }
 
 .bodyText {

@@ -82,7 +82,7 @@ const list = computed(() => {
     
 }
 .input {
-    font-family: var(--text-font);
+    /* font-family: var(--text-font); */
     font-size: 20px;
     color: var(--brand-color-2);
     padding: 7px;
