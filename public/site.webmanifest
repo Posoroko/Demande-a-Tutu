@@ -4,7 +4,7 @@
     "icons": [
         {
             "src": "/mstile-150x150.png",
-            "sizes": "96x96",
+            "sizes": "150x150",
             "type": "image/png"
         }
     ],
