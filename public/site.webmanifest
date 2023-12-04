@@ -1,9 +1,9 @@
 {
-    "name": "",
-    "short_name": "",
+    "name": "Demande à Tutu",
+    "short_name": "Demande à Tutu",
     "icons": [
         {
-            "src": "/android-chrome-96x96.png",
+            "src": "/mstile-150x150.png",
             "sizes": "96x96",
             "type": "image/png"
         }
