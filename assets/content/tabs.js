@@ -36,6 +36,7 @@ export const tabs = [
         id: 5,
         title: "Tutu tuning",
         path: "/tutu-tuning",
-        homepage: false,
+        homepage: true,
+        image: 'tete-logo.png'
     }
 ]
