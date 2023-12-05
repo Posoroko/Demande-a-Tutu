@@ -25,7 +25,12 @@ export default defineNuxtConfig({
             link: [
                 { rel: "manifest", href: "/site.webmanifest" }
             ],
-           
+              meta: [
+                {
+                    name: 'theme-color',
+                    content: '#f35200',
+                },
+            ]
         }
     },
 })
