@@ -25,7 +25,8 @@
         {
             "src": "/mstile-150x150.png",
             "sizes": "150x150",
-            "type": "image/png"
+            "type": "image/png",
+            "purpose": "maskable" 
         },
         {
             "src": "/logo-tutu-128.png",
@@ -41,5 +42,7 @@
 
     "theme_color": "#f35200",
     "background_color": "#faeaa8",
-    "display": "standalone"
+    "display": "fullscreen",
+    "orientation": "portrait",
+    "start_url": "https://demande-a-tutu.com"
 }
