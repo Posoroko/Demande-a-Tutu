@@ -44,8 +44,8 @@ onMounted(() => {
     <div class=" flex">
         <div class="frame relative">
             <img v-if="tutu.naked" class="" :src="`${directusAssets}${tutu.naked}`" alt="">
-            <img v-if="tutu.tops" class=" absolute top0 left0" :src="`${directusAssets}${tutu.tops}`" alt="">
             <img v-if="tutu.bottoms" class=" absolute top0 left0" :src="`${directusAssets}${tutu.bottoms}`" alt="">
+            <img v-if="tutu.tops" class=" absolute top0 left0" :src="`${directusAssets}${tutu.tops}`" alt="">
             <img v-if="tutu.hats" class=" absolute top0 left0" :src="`${directusAssets}${tutu.hats}`" alt="">
             <img v-if="tutu.tools" class=" absolute top0 left0" :src="`${directusAssets}${tutu.tools}`" alt="">
         </div>
